@@ -1,0 +1,171 @@
+<app-header></app-header>
+<!-- <form>
+    <h2 style="padding-left: 450px;">Customer Details</h2>
+    <div class="box">
+        <div>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label for="Name">Name:</mat-label>
+                <input type="text" id="Name" class="name-input" matInput>
+            </mat-form-field>
+            &nbsp;&nbsp;
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label for="PhoneNumber">Phone Number:</mat-label>
+                <input type="text" id="PhoneNumber" class="name-input" matInput>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label for="Pincode">Pincode:</mat-label>
+                <input type="text" id="Pincode" class="name-input" matInput>
+            </mat-form-field>
+            &nbsp;&nbsp;
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label for="Address">Locality :</mat-label>
+                <input type="text" id="Locality" class="name-input" matInput>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width" appearance="outline" style="width: 82%;">
+                <mat-label>Address :</mat-label>
+                <textarea matInput id="Address" class="input" name="Address" placeholder="Address" style="height:100px"
+                    required></textarea>
+            </mat-form-field>
+        </div>
+    
+    
+        <div>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label for="town">City/Town:</mat-label>
+                <input type="text" id="town" class="name-input" matInput>
+            </mat-form-field>
+            &nbsp;&nbsp;
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label for="Landmark">Landmark:</mat-label>
+                <input type="text" id="Landmark" class="name-input" matInput>
+            </mat-form-field>
+        </div>
+    
+        <div>
+            <label class="label text" for="type">Type</label>
+            <div>
+                <mat-radio-group>
+                    <mat-radio-button type="radio" id="Home" name="Home" color="primary" value="Home" required>
+                        <label class="text" for="Home">Home</label>
+                    </mat-radio-button>
+                    <mat-radio-button type="radio" id="Work" name="Work" color="primary" value="Work" required>
+                        <label class="text" for="Work">Work</label>
+                    </mat-radio-button>
+                    <mat-radio-button type="radio" id="Other" name="Other" color="primary" value="Other" required>
+                        <label class="text" for="Work">Other</label>
+                    </mat-radio-button>
+                </mat-radio-group>
+                <button mat-raised-button type="submit" color="primary"  id="continueButton" >Continue</button>          
+            </div>  
+        </div>    
+    </div></form> -->
+
+
+<div class="main-content">
+  <div class="example-card">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>My Cart({{cartItems}})
+          <br>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="content">
+        <img mat-card-image class="card" src="../assets/Image 10.png" alt="picture" style="i-size: medium;">
+        &nbsp;&nbsp;
+        <div>Harry Potter
+          <br> <span style="color: rgba(88, 84, 84, 0.837);">by
+            J.K. Rowling</span>
+          <br><br>&nbsp;&nbsp; Rs.150
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="actions">
+          <button class="circle" (click)="decrease()">-</button>
+          <div class="rectangle">{{cartItems}}</div>
+          <button class="circle" (click)="increase()">+</button>
+        </div><button style="margin-left: 30px; padding:10px;" routerLink="/a">Remove</button>
+      </mat-card-actions>
+      <button class="order-button" mat-raised-button color="primary" *ngIf="customerDetails" (click)="customer()">Place
+        Order</button>
+    </mat-card>
+  </div>
+  <br>
+  <div class="example-card">
+    <mat-card>
+      <h3>Customer Details</h3>
+      <div *ngIf="!customerDetails">
+        <div>
+          <div class="edit"><button>edit</button></div>
+          <br>
+          <div class="label">
+            <mat-form-field appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input matInput placeholder="First Name">
+            </mat-form-field> &nbsp;&nbsp;&nbsp;
+            <mat-form-field appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input matInput placeholder="Last Name">
+            </mat-form-field>
+          </div>
+          <div class="label">
+            <mat-form-field appearance="outline">
+              <mat-label>pincode</mat-label>
+              <input matInput placeholder="Pin code">
+            </mat-form-field> &nbsp;&nbsp;&nbsp;
+            <mat-form-field appearance="outline">
+              <mat-label>Locality</mat-label>
+              <input matInput placeholder="Locality">
+            </mat-form-field>
+          </div><label>Address</label>
+          <div class="label">
+
+            <textarea name="text" cols="64" rows="5"></textarea>
+          </div><br><br>
+          <div class="label">
+            <mat-form-field appearance="outline">
+              <mat-label>city/town</mat-label>
+              <input matInput placeholder="city">
+            </mat-form-field> &nbsp;&nbsp;&nbsp;
+            <mat-form-field appearance="outline">
+              <mat-label>Locality</mat-label>
+              <input matInput placeholder="Landm">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-label>Type</mat-label><br>
+            <mat-radio-group aria-label="Select an option">
+              <mat-radio-button value="1">Home</mat-radio-button>
+              <mat-radio-button value="2">Work</mat-radio-button>
+              <mat-radio-button value="2">other</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <button mat-raised-button color="primary" *ngIf="order" (click)="orderSummary()">Continue</button>
+        </div>
+      </div>
+    </mat-card>
+  </div><br>
+  <div class="example-card">
+    <mat-card>
+      <h3>Order Summary</h3>
+      <div *ngIf="!order">
+        <mat-card-content class="content">
+          <img mat-card-image class="card" src="../assets/Image 10.png" alt="picture">
+          &nbsp;&nbsp;
+          <div>Harry Potter
+            <br> <span style="color: rgba(88, 84, 84, 0.837);">by
+              J.K. Rowling</span>
+            <br><br>&nbsp;&nbsp; Rs.450
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="checkout">
+          <button mat-raised-button color="primary">checkout</button>
+        </mat-card-actions>
+      </div>
+
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<!-- <header>
+    <div class="row-content">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>BookStore</mat-label>
+          <input type="name" class="name-input" matInput >
+        </mat-form-field>
+      </div>
+</header> -->
+
+
+
+<!-- <div class="topnav">
+    <span class="active" >BookStore</span>
+    <input type="text" placeholder="Search..">
+  </div> -->
+<header class="header">
+    <div class="left">
+        <div class="logo">
+            <img src="assets/education.svg" alt="Logo">
+        </div>
+        <div class="title">
+            BookStore
+        </div>
+    </div>
+
+
+    <div class="center">
+        <input type="text" placeholder="Search...">
+        <!-- Add any additional search button or functionality here -->
+    </div>
+
+    <div class="right">
+        <div class="">
+            <a routerLink="/cart">
+            <img src="assets/supermarket.svg" alt="Logo"></a>
+            <span class="cart-count">{{ cartItemCount }}</span>
+        </div>
+        <div class="cart">
+            Cart
+        </div>
+    </div>
+    
+</header>
